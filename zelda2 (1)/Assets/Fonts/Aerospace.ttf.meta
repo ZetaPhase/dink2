@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f6cc5403fa88e4d328890adbbe4fb7b9
+timeCreated: 1500562682
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Aerospace
+  fontNames:
+  - Aerospace
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
