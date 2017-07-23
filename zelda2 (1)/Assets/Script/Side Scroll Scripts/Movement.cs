@@ -5,7 +5,10 @@ using System;
 
 public class Movement : MonoBehaviour
 {
-	//[SerializeField]
+	[SerializeField]
+	private AudioClip sharp;
+	[SerializeField]
+	private AudioClip Fife;
 	private GameObject fanfare;
 	[SerializeField]
 	private AudioClip Laser;
@@ -162,7 +165,14 @@ public class Movement : MonoBehaviour
 	{
 		_mRigidBody.velocity = new Vector2 (horizontal * _moveSpeed, _mRigidBody.velocity.y);
 	}
-
+	IEnumerator music ()
+	{
+		yield return new WaitForSeconds (sharp.length);
+		fanfare.GetComponent<AudioSource> ().clip = Fife;
+		fanfare.GetComponent<AudioSource> ().Play ();
+		fanfare.GetComponent<AudioSource> ().loop = true;
+		yield return null;
+	}
 	void OnCollisionEnter2D (Collision2D col)
 	{
 		//if (col.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
@@ -173,13 +183,19 @@ public class Movement : MonoBehaviour
 			healthHandler.FullHeal ();
 			Debug.Log ("full heal");
 		} else if (col.gameObject.layer == LayerMask.NameToLayer ("Crystal1")) {
+			fanfare.GetComponent<AudioSource> ().clip = sharp;
+			fanfare.GetComponent<AudioSource> ().loop = false;
 			fanfare.GetComponent<AudioSource>().Play ();
+			StartCoroutine ("music");
 			Debug.Log ("hit crystal1");
 			DestroyObject (col.gameObject);
 			StaticPlayer.dungeons [0] = true;
 		} else if (col.gameObject.layer == LayerMask.NameToLayer ("Crystal2")) {
 			Debug.Log ("hit crystal2");
+			fanfare.GetComponent<AudioSource> ().clip = sharp;
+			fanfare.GetComponent<AudioSource> ().loop = false;
 			fanfare.GetComponent<AudioSource>().Play ();
+			StartCoroutine ("music");
 			DestroyObject (col.gameObject);
 			StaticPlayer.dungeons [1] = true;
 		}

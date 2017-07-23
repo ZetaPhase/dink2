@@ -20,7 +20,7 @@ public static class StaticPlayer : object {
 	public static bool[] dungeons = new bool[2];
 
 
-	public static int maxLives = 3;
+	public static int maxLives = 5;
 	public static int lives = maxLives;
 	public static bool AllDung()
 	{

@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880735705133670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1139078, y: -1.7272453, z: 0}
+  m_LocalPosition: {x: -28.94, y: 0.91, z: 0}
   m_LocalScale: {x: -1.4, y: 1.4, z: 0}
   m_Children:
   - {fileID: 4348694366143822}
@@ -494,6 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecafb9a4c9bcc48b3b80cb448130069b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sharp: {fileID: 8300000, guid: e87757b45e01c764998401b81d4b7bc1, type: 3}
+  Fife: {fileID: 8300000, guid: 774e0fc3521d46b4a9a73fdf3bd68544, type: 3}
   Laser: {fileID: 8300000, guid: 39eb73c46e2e3e24eac25a15cb068b15, type: 3}
   Kick: {fileID: 8300000, guid: 8c9ce91950b47014db8f0ec94f874eda, type: 3}
   shield: {fileID: 1177364071480092}

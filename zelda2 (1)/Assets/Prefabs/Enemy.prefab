@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114643498973091540}
   - component: {fileID: 114091684497696338}
   - component: {fileID: 61415002521602868}
+  - component: {fileID: 82894173530051652}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: alien
@@ -90,6 +91,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.95, y: 1.69}
   m_EdgeRadius: 0
+--- !u!82 &82894173530051652
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1297652567783016}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 11d70fe5e1c741d45b23c54dff9d9d11, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114091684497696338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,8 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864f1ad7bb50e2b498f506ec35a64c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dock: {fileID: 82894173530051652}
   levelToLoad: EnemySpaceShip
-  waitTime: 0
+  waitTime: 1.5
   tagToCheck: Player
   Type: 0
   hardPosition: {x: 0, y: 0, z: 0}
@@ -135,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4cd9a65d25dca46898d3b9c952f901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  _moveSpeed: 0.5
   _maxDistance: 10
   _timeInMap: 10
 --- !u!212 &212925328025423680

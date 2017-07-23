@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LoadLevel : MonoBehaviour {
 	//leave type as 0 and enter as true and none of my edits will apply
 	[SerializeField]
+	private AudioSource dock;
+	[SerializeField]
 	[Tooltip("Level to load on collision (Case sensitive!)")]
 	private string levelToLoad;
 
@@ -34,7 +36,6 @@ public class LoadLevel : MonoBehaviour {
 	// May be usefull if we want to activate something after the player picks up something
 	public bool isInteractable = true;
 	public bool enter = true;
-
 	private GameObject player;
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -70,6 +71,10 @@ public class LoadLevel : MonoBehaviour {
 	}
 	IEnumerator LoadLevelWithDelay(float time)
 	{
+		dock.enabled = true;
+		if (this.GetComponent<AudioSource> () != null) {
+			this.GetComponent<AudioSource> ().Play ();
+		}
 		yield return new WaitForSeconds (time);
 		StartCoroutine (LoadLevelWithoutDelay ());
 		yield return null;
@@ -99,7 +104,7 @@ public class LoadLevel : MonoBehaviour {
 		StaticPlayer.lastPos = player.transform.position;
 		StaticPlayer.TelePos = this.transform.position;
 		StaticPlayer.Last = SceneManager.GetActiveScene ().name;
-		if (this.GetComponent<AudioSource>() != null && (smoothMusic) ){
+		if (dock != null && (smoothMusic) ){
 			StaticPlayer.worldTime = Time.time;
 			StaticPlayer.musicTime = this.GetComponent<AudioSource> ().time;
 		} else {
@@ -107,7 +112,7 @@ public class LoadLevel : MonoBehaviour {
 		}
 		SceneManager.LoadScene (levelToLoad);
 		//I am not sure if this line will run so I put it before and after just in case
-		if (this.GetComponent<AudioSource>() != null && (smoothMusic)) {
+		if (dock != null && (smoothMusic)) {
 			StaticPlayer.worldTime = Time.time;
 			StaticPlayer.musicTime = this.GetComponent<AudioSource> ().time;
 		}
@@ -116,6 +121,9 @@ public class LoadLevel : MonoBehaviour {
 	}
 	void Awake ()
 	{
+		if (dock != null) {
+			dock.enabled = false;
+		}
 		if (this.gameObject.tag == "Dyson") {
 			this.GetComponent<CircleCollider2D> ().isTrigger = StaticPlayer.AllDung();
 		}
