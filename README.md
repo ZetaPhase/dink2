@@ -3,7 +3,7 @@
 Dink and the Black Sun is a space clone of the video game Zelda 2.
 
 
-NHSGA 2017
+NHSGA 2017 Round 1 Lightning
 
 Credits:
 Dave Ho - Programmer  
